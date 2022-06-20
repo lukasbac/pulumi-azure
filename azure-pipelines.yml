@@ -22,7 +22,7 @@ pool:
 #    azureSubscriptionEndpoint: $(azureSubscriptionEndpoint)
 #    azureContainerRegistry: $(azureContainerRegistry)
 
-
+steps:
 - task: DockerCompose@0
   displayName: Build services
   inputs:
