@@ -30,19 +30,7 @@ steps:
     dockerComposeFile: '**/docker-compose.yml'
     action: 'Run a Docker Compose command'
     dockerComposeCommand: 'up'
-    arguments: '--build"'
-- task: DockerCompose@0
-  displayName: Build services
-  inputs:
-    action: Build services
-    azureSubscriptionEndpoint: $(azureSubscriptionEndpoint)
-    azureContainerRegistry: $(azureContainerRegistry)
-    dockerComposeFile: docker-compose.yml
-    projectName: kong2
-    qualifyImageNames: true
-    additionalImageTags: abc
-    dockerComposeCommand: " -t image"
-
+    arguments: '--build --no-start'
 
 - task: DockerCompose@0
   displayName: Push services
@@ -51,7 +39,7 @@ steps:
     azureSubscriptionEndpoint: $(azureSubscriptionEndpoint)
     azureContainerRegistry: $(azureContainerRegistry)
     dockerComposeFile: docker-compose.yml
-    projectName: kong2
+    projectName: kongny
     qualifyImageNames: true
     additionalImageTags: abc
 
