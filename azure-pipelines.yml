@@ -24,7 +24,7 @@ steps:
   displayName: Push image
   inputs:
     containerRegistry: |
-      lukasia3
+      registry-sc
     repository: "lukas-test"
     command: push
     tags: |
