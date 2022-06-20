@@ -33,9 +33,7 @@ steps:
     projectName: kong2
     qualifyImageNames: true
     additionalImageTags: abc
-    dockerComposeFileArgs: |
-      firstArg=-t "bt"
-      secondArg=.
+    dockerComposeFileArgs: -t "bdf"
 
 - task: DockerCompose@0
   displayName: Push services
