@@ -13,6 +13,16 @@ steps:
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
 
+- task: Docker@2
+  displayName: Push image
+  inputs:
+    containerRegistry: |
+      lukasia3
+    repository: "lukas-test"
+    command: push
+    tags: |
+      test1
+      test2
 - script: |
     echo Add other tasks to build, test, and deploy your project.
     echo See https://aka.ms/yaml
