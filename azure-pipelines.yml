@@ -34,9 +34,7 @@ steps:
       registry-sc
     repository: "lukas-test"
     command: push
-    tags: |
-      test1
-      test2
+
 - script: |
     echo Add other tasks to build, test, and deploy your project.
     echo See https://aka.ms/yaml
