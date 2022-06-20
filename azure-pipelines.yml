@@ -28,13 +28,12 @@ steps:
     azureContainerRegistry: registry-sc
     dockerComposeFile: docker-compose.yml
     dockerComposeCommand: up --build --no-start
-- task: Docker@2
+- task: DockerCompose@0
   displayName: Push image
   inputs:
-    containerRegistry: registry-sc
-    repository: "kong"
-    command: push
-    tags: "lukasia"
+    azureSubscriptionEndpoint: container
+    azureContainerRegistry: registry-sc
+    dockerComposeCommand: push
 
 - script: |
     echo Add other tasks to build, test, and deploy your project.
