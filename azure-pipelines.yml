@@ -32,9 +32,9 @@ steps:
   inputs:
     containerRegistry: |
       registry-sc
-    repository: "lukas-test"
+    repository: "kong"
     command: push
-    tags: 31
+    tags: 33
 
 - script: |
     echo Add other tasks to build, test, and deploy your project.
