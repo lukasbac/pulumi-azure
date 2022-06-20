@@ -22,14 +22,14 @@ steps:
   displayName: Container registry login
   inputs:
     containerregistrytype: Azure Container Registry
-    azureSubscriptionEndpoint: container
-    azureContainerRegistry: registry-sc
+    azureSubscriptionEndpoint: $(azureSubscriptionEndpoint)
+    azureContainerRegistry: $(azureContainerRegistry)
 - task: DockerCompose@0
   displayName: Build services
   inputs:
     action: Build services
-    azureSubscriptionEndpoint: container
-    azureContainerRegistry: registry-sc
+    azureSubscriptionEndpoint: $(azureSubscriptionEndpoint)
+    azureContainerRegistry: $(azureContainerRegistry)
     dockerComposeFile: docker-compose.yml
     projectName: kong2
     qualifyImageNames: true
@@ -39,8 +39,8 @@ steps:
   displayName: Push services
   inputs:
     action: Push services
-    azureSubscriptionEndpoint: container
-    azureContainerRegistry: registry-sc
+    azureSubscriptionEndpoint: $(azureSubscriptionEndpoint)
+    azureContainerRegistry: $(azureContainerRegistry)
     dockerComposeFile: docker-compose.yml
     projectName: kong2
     qualifyImageNames: true
