@@ -24,6 +24,11 @@ steps:
 #    containerregistrytype: Azure Container Registry
 #    azureSubscriptionEndpoint: $(azureSubscriptionEndpoint)
 #    azureContainerRegistry: $(azureContainerRegistry)
+- task: DockerCompose@0
+  displayName: Azure Container Registry login
+  inputs:
+    containerregistrytype: Azure Container Registry
+    dockerRegistryEndpoint: $(azureSubscriptionEndpoint)
 
 - task: DockerCompose@0
   displayName: Build services
