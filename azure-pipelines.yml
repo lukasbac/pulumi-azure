@@ -26,6 +26,7 @@ steps:
     azureSubscriptionEndpoint: container
     azureContainerRegistry: registry-sc
     dockerComposeFile: docker-compose.yml
+    dockerComposeCommand: up --build --no-start
 - task: Docker@2
   displayName: Push image
   inputs:
