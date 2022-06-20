@@ -33,7 +33,7 @@ steps:
     projectName: kong2
     qualifyImageNames: true
     additionalImageTags: abc
-    dockerComposeCommand: -t "image"
+    dockerComposeCommand: " -t image"
 
 
 - task: DockerCompose@0
