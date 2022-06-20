@@ -25,14 +25,14 @@ steps:
   inputs:
     containerregistrytype: Azure Container Registry
     azureSubscriptionEndpoint: container
-    azureContainerRegistry: registry-sc
+    azureContainerRegistry: lukasia3
     dockerComposeFile: docker-compose.yml
     dockerComposeCommand: up --build --no-start
 - task: DockerCompose@0
   displayName: Push image
   inputs:
     azureSubscriptionEndpoint: container
-    azureContainerRegistry: registry-sc
+    azureContainerRegistry: lukasia3
     dockerComposeCommand: push
 
 - script: |
