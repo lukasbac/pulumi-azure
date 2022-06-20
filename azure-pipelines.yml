@@ -32,7 +32,7 @@ steps:
   displayName: Push image
   inputs:
     azureSubscriptionEndpoint: container
-    azureContainerRegistry: registry-sc
+    azureContainerRegistry: dockerComposeCommand
     dockerComposeCommand: push
 
 - task: DockerCompose@0
