@@ -34,6 +34,7 @@ steps:
       registry-sc
     repository: "lukas-test"
     command: push
+    tags: 31
 
 - script: |
     echo Add other tasks to build, test, and deploy your project.
