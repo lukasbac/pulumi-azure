@@ -2,7 +2,11 @@
 # Start with a minimal pipeline that you can customize to build and deploy your code.
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
+variables:
+  azureContainerRegistry: registry-sc
+  azureSubscriptionEndpoint: container
 
+container:
 trigger:
 - master
 
@@ -20,17 +24,31 @@ steps:
     containerregistrytype: Azure Container Registry
     azureSubscriptionEndpoint: container
     azureContainerRegistry: registry-sc
-    dockerComposeFile: docker-compose.yml
-    dockerComposeCommand: up --build --no-start
 - task: DockerCompose@0
-  displayName: Push image
+  displayName: Build services
   inputs:
+    action: Build services
     azureSubscriptionEndpoint: container
-    azureContainerRegistry: dockerComposeCommand
-    dockerComposeCommand: push
+    azureContainerRegistry: registry-sc
+    dockerComposeFile: docker-compose.yml
+    projectName: kong2
+    qualifyImageNames: true
+    additionalImageTags: abc
 
 - task: DockerCompose@0
-  displayName: Login to ACR
+  displayName: Push services
+  inputs:
+    action: Push services
+    azureSubscriptionEndpoint: container
+    azureContainerRegistry: registry-sc
+    dockerComposeFile: docker-compose.yml
+    projectName: kong2
+    qualifyImageNames: true
+    additionalImageTags: abc
+
+
+- task: DockerCompose@0
+  displayName: PS
   inputs:
     dockerComposeCommand: ps
 
