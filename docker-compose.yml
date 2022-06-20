@@ -8,7 +8,7 @@ services:
   #######################################
   kong:
     image: kong:2.8.1-alpine
-    container_name: kong-api
+    container_name: kong
     environment:
       KONG_DATABASE: "off"
       KONG_DECLARATIVE_CONFIG: "kong.yml"
