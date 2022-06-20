@@ -29,8 +29,8 @@ steps:
     azureSubscription: 'container'
     dockerComposeFile: '**/docker-compose.yml'
     action: 'Run a Docker Compose command'
-    dockerComposeCommand: 'build"'
-    arguments: '-t "image"'
+    dockerComposeCommand: 'UP"'
+    arguments: '--build"'
 - task: DockerCompose@0
   displayName: Build services
   inputs:
