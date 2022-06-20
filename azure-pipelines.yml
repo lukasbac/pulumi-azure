@@ -18,7 +18,7 @@ steps:
   inputs:
     command: login
     containerRegistry: registry-sc
-    tags: lukasia
+    tags: "lukasia"
     
 - task: DockerCompose@0
   displayName: Container registry login
@@ -31,11 +31,10 @@ steps:
 - task: Docker@2
   displayName: Push image
   inputs:
-    containerRegistry: |
-      registry-sc
+    containerRegistry: registry-sc
     repository: "lukas-test"
     command: push
-    tags: lukasia
+    tags: "lukasia"
 
 - script: |
     echo Add other tasks to build, test, and deploy your project.
