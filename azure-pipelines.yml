@@ -29,7 +29,7 @@ steps:
   inputs:
     containerregistrytype: Azure Container Registry
     dockerRegistryEndpoint: $(azureSubscriptionEndpoint)
-
+    azureContainerRegistry: $(azureContainerRegistry)
 - task: DockerCompose@0
   displayName: Build services
   inputs:
