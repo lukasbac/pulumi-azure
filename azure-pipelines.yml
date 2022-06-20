@@ -24,6 +24,14 @@ pool:
 
 steps:
 - task: DockerCompose@0
+  inputs:
+    containerregistrytype: 'Azure Container Registry'
+    azureSubscription: 'container'
+    dockerComposeFile: '**/docker-compose.yml'
+    action: 'Run a Docker Compose command'
+    dockerComposeCommand: 'build"'
+    arguments: '-t "image"'
+- task: DockerCompose@0
   displayName: Build services
   inputs:
     action: Build services
