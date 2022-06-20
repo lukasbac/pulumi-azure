@@ -17,6 +17,7 @@ steps:
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
 
+- script: npm install dockercompose
 - script: dockercompose --help
     
 #- task: DockerCompose@0
