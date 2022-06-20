@@ -14,6 +14,11 @@ steps:
   displayName: 'Run a one-line script'
 
 - task: Docker@2
+  displayName: Login to ACR
+  inputs:
+    command: login
+    containerRegistry: dockerRegistryServiceConnection1
+- task: Docker@2
   displayName: Push image
   inputs:
     containerRegistry: |
