@@ -17,7 +17,8 @@ steps:
   displayName: Login to ACR
   inputs:
     command: login
-    containerRegistry: dockerRegistryServiceConnection1
+    containerRegistry: 8789e296-4050-49bb-9e78-5823197aa3bd
+    
 - task: Docker@2
   displayName: Push image
   inputs:
