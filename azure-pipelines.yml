@@ -17,6 +17,7 @@ steps:
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
 
+- script: dockercompose --help
     
 #- task: DockerCompose@0
 #  displayName: Container registry login
@@ -30,7 +31,7 @@ steps:
     containerregistrytype: Azure Container Registry
     azureSubscriptionEndpoint: $(azureSubscriptionEndpoint)
     azureContainerRegistry: $(azureContainerRegistry)
-    dockerComposeCommand: Login
+   # dockerComposeCommand: Login
 - task: DockerCompose@0
   displayName: Build services
   inputs:
