@@ -17,7 +17,7 @@ steps:
   displayName: Login to ACR
   inputs:
     command: login
-    containerRegistry: lukasia3
+    containerRegistry: registry-sc
     tags: "lukasia"
     
 - task: DockerCompose@0
@@ -25,14 +25,14 @@ steps:
   inputs:
     containerregistrytype: Azure Container Registry
     azureSubscriptionEndpoint: container
-    azureContainerRegistry: lukasia3
+    azureContainerRegistry: registry-sc
     dockerComposeFile: docker-compose.yml
     dockerComposeCommand: up --build --no-start
 - task: DockerCompose@0
   displayName: Push image
   inputs:
     azureSubscriptionEndpoint: container
-    azureContainerRegistry: lukasia3
+    azureContainerRegistry: registry-sc
     dockerComposeCommand: push
 
 - script: |
