@@ -32,7 +32,7 @@ steps:
   displayName: Push image
   inputs:
     containerRegistry: registry-sc
-    repository: "lukas-test"
+    repository: "kong"
     command: push
     tags: "lukasia"
 
