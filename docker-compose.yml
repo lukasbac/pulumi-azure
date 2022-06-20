@@ -1,0 +1,49 @@
+version: '2.1'
+networks:
+  kong-net:
+  
+services:
+  #######################################
+  # Kong: The API Gateway
+  #######################################
+  kong:
+    image: kong:2.8.1-alpine
+    container_name: kong-api
+    environment:
+      KONG_DATABASE: "off"
+      KONG_DECLARATIVE_CONFIG: "kong.yml"
+      KONG_PROXY_ACCESS_LOG: kong
+     # KONG_ADMIN_ACCESS_LOG: /dev/stdout
+     # KONG_PROXY_ERROR_LOG: /dev/stderr
+     #KONG_ADMIN_ERROR_LOG: /dev/stderr"
+     # KONG_ADMIN_GUI_URL: http://localhost:8002
+      #KONG_ADMIN_LISTEN: http://localhost:8001
+    networks:
+      - kong-net
+    ports:
+    - "8000:8000"
+    - "8001:8001"
+    - "8002:8002"
+    #- "8443:8443"
+    #- "8444:8444"
+    #- "8002:8002"
+    #- "8445:8445"
+    #- "8003:8003"
+    #- "8004:8004"
+    volumes:
+      - ./config:/kong
+    healthcheck:
+      test: ["CMD", "kong", "health"]
+      interval: 10s
+      timeout: 10s
+      retries: 10
+      
+  #######################################
+  # Example Microservice
+  #######################################
+  #app:
+  #  build: .
+  #  container_name: kong-app
+  #  networks:
+  #    - kong-net
+  #  restart: on-failure
