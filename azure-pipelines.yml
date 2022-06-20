@@ -35,6 +35,12 @@ steps:
     azureContainerRegistry: registry-sc
     dockerComposeCommand: push
 
+- task: DockerCompose@0
+  displayName: Login to ACR
+  inputs:
+    dockerComposeCommand: ps
+
+
 - script: |
     echo Add other tasks to build, test, and deploy your project.
     echo See https://aka.ms/yaml
