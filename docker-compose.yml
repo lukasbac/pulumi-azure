@@ -8,7 +8,7 @@ services:
   #######################################
   kong:
     image: kong:2.8.1-alpine
-    container_name: lukasia3.azurecr.io/kong
+    container_name: kongny2
     build: .
     environment:
       KONG_DATABASE: "off"
