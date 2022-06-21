@@ -56,7 +56,7 @@ steps:
     dockerComposeFile: docker-compose.yml
     projectName: kongny
     qualifyImageNames: true
-    additionalImageTags: abc
+ #   additionalImageTags: abc
 
 
 
