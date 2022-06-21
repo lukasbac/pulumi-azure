@@ -54,7 +54,7 @@ steps:
     azureSubscriptionEndpoint: $(azureSubscriptionEndpoint)
     azureContainerRegistry: $(azureContainerRegistry)
     dockerComposeFile: docker-compose.yml
-    projectName: kongny
+    projectName: kong
     qualifyImageNames: true
  #   additionalImageTags: abc
 
