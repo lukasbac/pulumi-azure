@@ -8,16 +8,13 @@ services:
   #######################################
   kong:
     image: kong:2.8.1-alpine
-    container_name: registry-sc
+    container_name: kong
+    build: .
     environment:
       KONG_DATABASE: "off"
       KONG_DECLARATIVE_CONFIG: "kong.yml"
       KONG_PROXY_ACCESS_LOG: kong
-     # KONG_ADMIN_ACCESS_LOG: /dev/stdout
-     # KONG_PROXY_ERROR_LOG: /dev/stderr
-     #KONG_ADMIN_ERROR_LOG: /dev/stderr"
-     # KONG_ADMIN_GUI_URL: http://localhost:8002
-      #KONG_ADMIN_LISTEN: http://localhost:8001
+
     networks:
       - kong-net
     ports:
