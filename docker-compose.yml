@@ -7,8 +7,8 @@ services:
   # Kong: The API Gateway
   #######################################
   kong:
-    image: lukasia3.azurecr.io/kong
-    container_name: kong
+    image: lukasia3.azurecr.io/kong2
+    container_name: kong2
     build: .
     environment:
       KONG_DATABASE: "off"

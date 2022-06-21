@@ -36,6 +36,6 @@ steps:
     azureSubscriptionEndpoint: $(azureSubscriptionEndpoint)
     azureContainerRegistry: $(azureContainerRegistry)
     dockerComposeFile: docker-compose.yml
-    projectName: kong
+    projectName: kong2
     qualifyImageNames: true
 
