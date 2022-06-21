@@ -23,13 +23,6 @@ steps:
     command: login
     containerRegistry: registry-sc
     tags: "lukasia"
-- task: DockerCompose@0
-  displayName: Container registry login
-  inputs:
-    containerregistrytype: Azure Container Registry
-    azureSubscriptionEndpoint: $(azureSubscriptionEndpoint)
-    azureContainerRegistry: $(azureContainerRegistry)
-    dockerComposeCommand: 'login'
 
 - task: DockerCompose@0
   inputs:
