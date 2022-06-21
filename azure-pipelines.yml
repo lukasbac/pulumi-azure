@@ -21,7 +21,7 @@ steps:
   displayName: Login to ACR
   inputs:
     command: login
-    containerRegistry: lukasia3
+    containerRegistry: registry-sc
     tags: "lukasia"
 - task: DockerCompose@0
   displayName: Container registry login
