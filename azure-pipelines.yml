@@ -3,40 +3,49 @@
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
 
+variables:
+  azureContainerRegistry: registry-sc
+  azureSubscriptionEndpoint: container
+
 trigger:
 - master
 
 pool:
   vmImage: ubuntu-latest
 
-steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
 
-- task: Docker@2
-  displayName: Login to ACR
-  inputs:
-    command: login
-    containerRegistry: registry-sc
-    tags: "lukasia"
     
+#- task: DockerCompose@0
+#  displayName: Container registry login
+#  inputs:
+#    containerregistrytype: Azure Container Registry
+#    azureSubscriptionEndpoint: $(azureSubscriptionEndpoint)
+#    azureContainerRegistry: $(azureContainerRegistry)
+
+steps:
 - task: DockerCompose@0
-  displayName: Container registry login
   inputs:
-    containerregistrytype: Azure Container Registry
-    azureSubscriptionEndpoint: container
-    azureContainerRegistry: registry-sc
-    dockerComposeFile: docker-compose.yml
-    dockerComposeCommand: up --build --no-start
-- task: DockerCompose@0
-  displayName: Push image
-  inputs:
-    azureSubscriptionEndpoint: container
-    azureContainerRegistry: dockerComposeCommand
-    dockerComposeCommand: push
+    containerregistrytype: 'Azure Container Registry'
+    azureSubscription: 'container'
+    dockerComposeFile: '**/docker-compose.yml'
+    action: 'Run a Docker Compose command'
+    dockerComposeCommand: 'up'
+    arguments: '--build --no-start'
 
 - task: DockerCompose@0
-  displayName: Login to ACR
+  displayName: Push services
+  inputs:
+    action: Push services
+    azureSubscriptionEndpoint: $(azureSubscriptionEndpoint)
+    azureContainerRegistry: $(azureContainerRegistry)
+    dockerComposeFile: docker-compose.yml
+    projectName: kongny
+    qualifyImageNames: true
+    additionalImageTags: abc
+
+
+- task: DockerCompose@0
+  displayName: PS
   inputs:
     dockerComposeCommand: ps
 
