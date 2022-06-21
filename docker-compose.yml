@@ -7,7 +7,7 @@ services:
   # Kong: The API Gateway
   #######################################
   kong:
-    image: kong:2.8.1-alpine
+    image: lukasia3.azurecr.io/kong
     container_name: kongny2
     build: .
     environment:
