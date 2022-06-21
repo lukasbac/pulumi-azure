@@ -11,6 +11,7 @@ services:
 #      KONG_DATABASE: "off"
 #      KONG_DECLARATIVE_CONFIG: "kong.yml"
 #      KONG_PROXY_ACCESS_LOG: kong
+
     image: lukasia3.azurecr.io/kong2
     container_name: kong
     build: .
