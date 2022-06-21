@@ -4,7 +4,7 @@
 # https://aka.ms/yaml
 
 variables:
-  azureContainerRegistry: registry-sc
+  azureContainerRegistry: lukasia3
   azureSubscriptionEndpoint: container
 
 trigger:
@@ -15,14 +15,14 @@ pool:
 
 
     
-#- task: DockerCompose@0
-#  displayName: Container registry login
-#  inputs:
-#    containerregistrytype: Azure Container Registry
-#    azureSubscriptionEndpoint: $(azureSubscriptionEndpoint)
-#    azureContainerRegistry: $(azureContainerRegistry)
 
 steps:
+- task: DockerCompose@0
+  displayName: Container registry login
+  inputs:
+    containerregistrytype: Azure Container Registry
+    azureSubscriptionEndpoint: $(azureSubscriptionEndpoint)
+    azureContainerRegistry: $(azureContainerRegistry)
 - task: DockerCompose@0
   inputs:
     containerregistrytype: 'Azure Container Registry'
@@ -32,6 +32,11 @@ steps:
     dockerComposeCommand: 'up'
     arguments: '--build --no-start'
 
+
+- task: DockerCompose@0
+  displayName: PS - Images
+  inputs:
+    dockerComposeCommand: ps
 - task: DockerCompose@0
   displayName: Push services
   inputs:
@@ -43,11 +48,6 @@ steps:
     qualifyImageNames: true
     additionalImageTags: abc
 
-
-- task: DockerCompose@0
-  displayName: PS
-  inputs:
-    dockerComposeCommand: ps
 
 
 - script: |
