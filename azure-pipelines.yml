@@ -4,7 +4,7 @@
 # https://aka.ms/yaml
 
 variables:
-  azureContainerRegistry: lukasia3
+  azureContainerRegistry: registry-sc
   azureSubscriptionEndpoint: container
 
 trigger:
