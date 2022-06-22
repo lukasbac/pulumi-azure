@@ -60,7 +60,7 @@ steps:
 - task: Pulumi@1
   displayName: pulumi preview
   inputs:
-    azureSubscription: 'azure-vsenterprise-subscription'
+    azureSubscription: $(azureSubscriptionEndpoint)
     command: 'preview'
     stack: $(pulumiStack)
     createStack: true
@@ -69,6 +69,6 @@ steps:
   displayName: pulumi update
   condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
   inputs:
-    azureSubscription: 'azure-vsenterprise-subscription'
+    azureSubscription: $(azureSubscriptionEndpoint)
     command: 'up'
     stack: $(pulumiStack)
