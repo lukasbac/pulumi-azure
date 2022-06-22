@@ -10,11 +10,3 @@
    - name: my-route
      paths:
      - /mock
-- host: https://getreturnblob.azurewebsites.net/api/BlobInput?code=p3UNL4j8z4ZmdSNmaEZzH7HkIqXzJx7RFJRGRhTQQIfRAzFuLBQ2tA==
-  name: Blob
-  port: 80
-  protocol: http
-  routes:
-  - name: my-route-blob
-    paths:
-    - /
